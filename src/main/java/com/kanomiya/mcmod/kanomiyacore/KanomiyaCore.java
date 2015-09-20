@@ -21,10 +21,9 @@ public class KanomiyaCore {
 	 * @author Kanomiya
 	 *
 	 */
-	@Mod(modid = KanomiyaCoreMod.MODID, name = KanomiyaCoreMod.MODID, version = KanomiyaCoreMod.VERSION)
+	@Mod(modid = KanomiyaCoreMod.MODID)
 	public static class KanomiyaCoreMod {
 		public static final String MODID = "kanomiyacore";
-		public static final String VERSION = "0.10";
 
 		public static Logger logger;
 

@@ -60,7 +60,7 @@ public class BitFieldStructure {
 
 		Pair<Integer, Integer> pair = strToBF.get(name);
 
-		int value = raw >> (pair.first() - pair.second());
+		int value = raw >> (pair.first() - pair.second() +1);
 
 		return value & BitFieldHelper.getMask(pair.second());
 	}
