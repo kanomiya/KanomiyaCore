@@ -1,11 +1,10 @@
 [
 {
-	"modinfoversion": 2,
 	"modid": "kanomiyacore",
 	"name": "Kanomiya Core",
 	"description": "Kanomiya 前提Mod / The Mod required for Kanomiya's Mods",
-	"version": "0.10b",
-	"mcversion": "1.8",
+	"version": "${version}",
+	"mcversion": "${mcversion}",
 	"url": "http://kanomiya.com/",
 	"updateUrl": "",
 	"authorList": ["Kanomiya"],

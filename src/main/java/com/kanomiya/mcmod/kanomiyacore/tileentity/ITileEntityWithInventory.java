@@ -77,7 +77,7 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 
 	@Override
 	public IChatComponent getDisplayName() {
-		return hasCustomName() ? new ChatComponentText(getName()) : new ChatComponentTranslation(getName(), new Object[0]);
+		return hasCustomName() ? new ChatComponentText(getCommandSenderName()) : new ChatComponentTranslation(getCommandSenderName(), new Object[0]);
 	}
 
 	@Override
@@ -145,7 +145,7 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 			++numPlayersUsing;
 			worldObj.addBlockEvent(pos, getBlockType(), 1, numPlayersUsing);
 			worldObj.notifyNeighborsOfStateChange(pos, getBlockType());
-			worldObj.notifyNeighborsOfStateChange(pos.offsetDown(), getBlockType());
+			worldObj.notifyNeighborsOfStateChange(pos.down(), getBlockType());
 		}
 	}
 
@@ -155,7 +155,7 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 			--numPlayersUsing;
 			worldObj.addBlockEvent(pos, getBlockType(), 1, numPlayersUsing);
 			worldObj.notifyNeighborsOfStateChange(pos, getBlockType());
-			worldObj.notifyNeighborsOfStateChange(pos.offsetDown(), getBlockType());
+			worldObj.notifyNeighborsOfStateChange(pos.down(), getBlockType());
 		}
 	}
 

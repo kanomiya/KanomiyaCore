@@ -18,6 +18,8 @@ public class BitFieldStructure {
 
 	/**
 	 *
+	 * ビットフィールドの割り当て
+	 *
 	 * @param name
 	 * @param beginBit Beginning Bit Index (Right To Left)
 	 * @param bitLength
@@ -35,7 +37,7 @@ public class BitFieldStructure {
 	 * <br>
 	 * 処理の流れ<br>
 	 * (111011101)<br>
-	 * の3番目から3ビット分(110)取得<br>
+	 * の4番目から3ビット分(110)取得<br>
 	 * <br>
 	 * >> (3 -3 +1)<br>
 	 * <br>

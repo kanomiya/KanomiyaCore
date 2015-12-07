@@ -8,10 +8,10 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.kanomiya.mcmod.kanomiyacore.KanomiyaCore;
+import com.mojang.realmsclient.util.Pair;
 
 /**
  * ItemModel他の一括登録
@@ -110,40 +110,16 @@ public class GameRegistryUtils {
 	}
 
 
-
-
-
-
-	public int registerEntity(Class entityClass, String name, int entityId) {
-		// EntityRegistry.registerGlobalEntityID(entityClass, name, entityId);
-		EntityRegistry.registerModEntity(entityClass, name, entityId, core.getModInstance(), 64, 1, true);
-
-		return entityId;
-	}
-
-	public int registerEntity(Class entityClass, String name) {
-		return registerEntity(entityClass, name, EntityRegistry.findGlobalUniqueEntityId());
-	}
-
-	public int registerEntity(Class entityClass, String name, int primaryColor, int secondaryColor) {
-		int entityId = registerEntity(entityClass, name);
-
-		EntityRegistry.registerGlobalEntityID(entityClass, name, entityId, primaryColor, secondaryColor);
-		// EntityList.addMapping(entityClass, name, entityID, primaryColor, secondaryColor);
-
-		return entityId;
-	}
-
-	public int registerEntity(Class entityClass, String name, boolean addEgg) {
-
-		if (addEgg) {
-			long seed = name.hashCode();
-			Random rand = new Random(seed);
-
-			return registerEntity(entityClass, name, rand.nextInt() * 16777215, rand.nextInt() * 16777215);
-		} else {
-			return registerEntity(entityClass, name);
-		}
+	/**
+	 *
+	 * Entity登録名のhashcodeからスポーンエッグ色を生成
+	 *
+	 * @param name Entity Register Name
+	 * @return Pair of Primary & Secondary Color
+	 */
+	public Pair<Integer, Integer> getUniqueEggColor(String name) {
+		Random rand = new Random(name.hashCode());
+		return Pair.of((rand.nextInt() *0xFFFFFF) &0xFFFFFF, (rand.nextInt() *0xFFFFFF) &0xFFFFFF);
 	}
 
 
