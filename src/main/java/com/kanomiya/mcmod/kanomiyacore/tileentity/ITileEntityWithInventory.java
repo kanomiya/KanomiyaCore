@@ -145,7 +145,7 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 			++numPlayersUsing;
 			worldObj.addBlockEvent(pos, getBlockType(), 1, numPlayersUsing);
 			worldObj.notifyNeighborsOfStateChange(pos, getBlockType());
-			worldObj.notifyNeighborsOfStateChange(pos.down(), getBlockType());
+			worldObj.notifyNeighborsOfStateChange(pos.offsetDown(), getBlockType());
 		}
 	}
 
@@ -155,7 +155,7 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 			--numPlayersUsing;
 			worldObj.addBlockEvent(pos, getBlockType(), 1, numPlayersUsing);
 			worldObj.notifyNeighborsOfStateChange(pos, getBlockType());
-			worldObj.notifyNeighborsOfStateChange(pos.down(), getBlockType());
+			worldObj.notifyNeighborsOfStateChange(pos.offsetDown(), getBlockType());
 		}
 	}
 
