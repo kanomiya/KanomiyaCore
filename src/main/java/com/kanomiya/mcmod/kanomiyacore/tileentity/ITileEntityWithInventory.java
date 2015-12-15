@@ -77,7 +77,7 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 
 	@Override
 	public IChatComponent getDisplayName() {
-		return hasCustomName() ? new ChatComponentText(getCommandSenderName()) : new ChatComponentTranslation(getCommandSenderName(), new Object[0]);
+		return hasCustomName() ? new ChatComponentText(customName) : new ChatComponentTranslation(getName(), new Object[0]);
 	}
 
 	@Override
@@ -108,8 +108,11 @@ public abstract class ITileEntityWithInventory extends TileEntity implements IIn
 		}
 	}
 
+	/**
+	* @inheritDoc
+	*/
 	@Override
-	public ItemStack getStackInSlotOnClosing(int index) {
+	public ItemStack removeStackFromSlot(int index) {
 		if (items[index] != null) {
 			ItemStack itemstack = items[index];
 			items[index] = null;
