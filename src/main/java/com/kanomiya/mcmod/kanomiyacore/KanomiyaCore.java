@@ -21,7 +21,7 @@ public class KanomiyaCore {
 	 * @author Kanomiya
 	 *
 	 */
-	@Mod(modid = KanomiyaCoreMod.MODID, acceptedMinecraftVersions = "[1.8,1.8.8]")
+	@Mod(modid = KanomiyaCoreMod.MODID)
 	public static class KanomiyaCoreMod {
 		public static final String MODID = "kanomiyacore";
 

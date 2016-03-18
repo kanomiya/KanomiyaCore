@@ -2,9 +2,9 @@
 {
 	"modid": "kanomiyacore",
 	"name": "Kanomiya Core",
-	"description": "Kanomiya 前提Mod / The Mod required for Kanomiya's Mods",
-	"version": "${version}",
-	"mcversion": "${mcversion}",
+	"description": "Kanomiya 前提Mod / The Mod required by Kanomiya's Mods",
+	"version": "0.1.1",
+	"mcversion": "1.9",
 	"url": "http://kanomiya.com/",
 	"updateUrl": "",
 	"authorList": ["Kanomiya"],
