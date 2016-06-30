@@ -1,6 +1,7 @@
 package com.kanomiya.mcmod.kanomiyacore.render;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
 
 /**
  *
@@ -9,7 +10,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
  * @author Kanomiya
  *
  */
-public abstract class IExtendedTileEntitySpecialRenderer extends TileEntitySpecialRenderer {
+public abstract class IExtendedTileEntitySpecialRenderer<T extends TileEntity> extends TileEntitySpecialRenderer<T> {
 
 	/**
 	 * 横回転比の取得

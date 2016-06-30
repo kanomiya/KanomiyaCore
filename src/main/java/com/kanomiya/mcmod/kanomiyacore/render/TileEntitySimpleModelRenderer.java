@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  *
  */
 @SideOnly(Side.CLIENT)
-public class TileEntitySimpleModelRenderer extends IExtendedTileEntitySpecialRenderer {
+public class TileEntitySimpleModelRenderer<T extends TileEntity> extends IExtendedTileEntitySpecialRenderer<T> {
 	public final ISimpleModel model;
 	public final ResourceLocation resource;
 	public final boolean rotateFlag;
@@ -36,7 +36,7 @@ public class TileEntitySimpleModelRenderer extends IExtendedTileEntitySpecialRen
 	 *
 	 * @inheritDoc
 	 */
-	@Override public void renderTileEntityAt(TileEntity te, double posX, double posZ, double posY, float rot_rot, int p_180535_9_) {
+	@Override public void renderTileEntityAt(T te, double posX, double posZ, double posY, float rot_rot, int p_180535_9_) {
 		GlStateManager.pushMatrix(); // 座標保存
 
 		GlStateManager.translate((float)posX +0.5f, (float)posY -0.5f, (float)posZ +0.5f);
