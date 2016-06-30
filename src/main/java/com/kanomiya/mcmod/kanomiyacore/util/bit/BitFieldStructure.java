@@ -3,7 +3,6 @@ package com.kanomiya.mcmod.kanomiyacore.util.bit;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
-import com.kanomiya.mcmod.kanomiyacore.KanomiyaCore.KanomiyaCoreMod;
 import com.mojang.realmsclient.util.Pair;
 
 
@@ -55,8 +54,7 @@ public class BitFieldStructure {
 	 */
 	public int getValue(String name, int raw) {
 		if (! strToBF.containsKey(name)) {
-			KanomiyaCoreMod.logger.warn("Unknown bit field: " + name);
-			return 0;
+		    throw new RuntimeException("Unknown bit field: " + name);
 		}
 
 		Pair<Integer, Integer> pair = strToBF.get(name);
@@ -101,8 +99,7 @@ public class BitFieldStructure {
 	 */
 	public int setValue(String name, int raw, int value) {
 		if (! strToBF.containsKey(name)) {
-			KanomiyaCoreMod.logger.warn("Unknown bit field: " + name);
-			return raw;
+            throw new RuntimeException("Unknown bit field: " + name);
 		}
 
 		Pair<Integer, Integer> pair = strToBF.get(name);

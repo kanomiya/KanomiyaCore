@@ -12,6 +12,7 @@ buildscript {
 		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
 	}
 }
+
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 /*
@@ -21,13 +22,13 @@ plugins {
 }
 */
 version = "0.1.1"
-group = "com.kanomiya.mcmod.kanomiyacore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "com.kanomiya.mcmod.kanomiyacore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "kanomiyacore"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 minecraft {
-	version = "1.10-12.18.0.1983-1.10.0"
+	version = "1.10.2-12.18.0.2004-1.10.0"
 	runDir = "run"
 
 	mappings = "snapshot_20160518"
@@ -37,34 +38,16 @@ minecraft {
 		options.compilerArgs += ['-source', '1.8', '-target', '1.8']
 	}
 
+	replaceIn 'KanomiyaCore.java'
+	replaceIn 'package-info.java'
+	replace "@VERSION@", project.version
 }
 
 dependencies {
-	// you may put jars on which you depend on in ./libs
-	// or you may define them like so..
-	//compile "some.group:artifact:version:classifier"
-	//compile "some.group:artifact:version"
-
-	// real examples
-	//compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-	//compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-	// the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-	//provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-	// the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-	// except that these dependencies get remapped to your current MCP mappings
-	//deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-	//deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-	// for more info...
-	// http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-	// http://www.gradle.org/docs/current/userguide/dependency_management.html
 
 }
 
-processResources
-{
+processResources {
 	// this will ensure that this task is redone when the versions change.
 	inputs.property "version", project.version
 	inputs.property "mcversion", project.minecraft.version
@@ -76,6 +59,7 @@ processResources
 		// replace version and mcversion
 		expand 'version':project.version, 'mcversion':project.minecraft.version
 	}
+
 
 	// copy everything else, thats not the mcmod.info
 	from(sourceSets.main.resources.srcDirs) {
@@ -99,25 +83,10 @@ task devJar(type: Jar, dependsOn: sourceJar) {
 	from 'build/sources/main/java'
 }
 
-task apiJar(type: Jar, dependsOn: sourceJar) {
-	appendix = minecraft.version
-	classifier = "api"
-
-	ext.apiPackage = "com/kanomiya/mcmod/cradleofnoesis/api/"
-
-	from (sourceSets.main.output) {
-		include ext.apiPackage
-	}
-
-	from ('build/sources/main/java') {
-		include ext.apiPackage
-	}
-
-	from 'LICENSE'
-}
 
 artifacts {
 	archives devJar
 }
 
 sourceJar.appendix = minecraft.version
+

@@ -1,20 +1,11 @@
 [
 {
-	"modid": "kanomiyacore",
-	"name": "Kanomiya Core",
-	"description": "Kanomiya 前提Mod / The Mod required by Kanomiya's Mods",
-	"version": "0.1.1",
-	"mcversion": "1.9",
-	"url": "http://kanomiya.com/",
-	"updateUrl": "",
-	"authorList": ["Kanomiya"],
-	"credits": "",
-	"logoFile": "",
-	"screenshots": [],
-	"parent": "",
-	"requiredMods": [],
-	"dependencies": [],
-	"dependants": [],
-	"useDependencyInformation": "true"
+  "modid": "com.kanomiya.mcmod.kanomiyacore",
+  "name": "Kanomiya Core",
+  "description": "Kanomiya 前提Mod / The Mod required by Kanomiya's Mods",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/kanomiya/KanomiyaCore",
+  "authorList": ["Kanomiya"]
 }
 ]

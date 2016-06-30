@@ -1,68 +1,28 @@
 package com.kanomiya.mcmod.kanomiyacore;
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import org.apache.logging.log4j.Logger;
-
-import com.kanomiya.mcmod.kanomiyacore.util.GameRegistryUtils;
-
 /**
- * 核クラス
+ * Modクラス
  *
- * @author Kanomiya
+ * @author Kanomiya [2016]
  *
  */
+@Mod(modid = KanomiyaCore.MODID, name = "Kanomiya Core", version = "@VERSION@")
 public class KanomiyaCore {
 
-	/**
-	 * Modクラス
-	 * @author Kanomiya
-	 *
-	 */
-	@Mod(modid = KanomiyaCoreMod.MODID)
-	public static class KanomiyaCoreMod {
-		public static final String MODID = "kanomiyacore";
+    public static final String MODID = "com.kanomiya.mcmod.kanomiyacore";
 
-		public static Logger logger;
+    public static Logger logger;
 
-		@EventHandler
-		public void preInit(FMLPreInitializationEvent event) {
-			logger = event.getModLog();
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
 
-		}
-
-
-	}
-
-
-	protected final String modid;
-	protected final Object mod;
-
-	protected GameRegistryUtils gameregutils;
-
-	/**
-	 *
-	 * @param parModid Modid
-	 * @param parMod Modのインスタンス
-	 */
-	public KanomiyaCore(String parModid, Object parMod) {
-		modid = parModid;
-		mod = parMod;
-	}
-
-	public GameRegistryUtils getGameRegistryUtils() {
-		if (gameregutils == null) gameregutils = new GameRegistryUtils(this);
-		return gameregutils;
-	}
-
-	public String getModid() { return modid; }
-	public Object getModInstance() { return mod; }
-
+    }
 
 }
-
-
-
-
