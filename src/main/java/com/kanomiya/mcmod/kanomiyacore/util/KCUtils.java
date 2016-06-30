@@ -37,7 +37,17 @@ public class KCUtils
             {
                 for (int i=0; i<stringAry.length; ++i)
                 {
-                    ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), item.getRegistryName().getResourcePath() + (stringAry[i].equals("") ? "" : "_" + stringAry[i].toLowerCase())), "inventory"));
+                    ResourceLocation key;
+
+                    if (stringAry[i].contains(":"))
+                    {
+                        key = new ResourceLocation(stringAry[i]);
+                    } else
+                    {
+                        key = new ResourceLocation(item.getRegistryName().getResourceDomain(), item.getRegistryName().getResourcePath() + (stringAry[i].equals("") ? "" : "_" + stringAry[i].toLowerCase()));
+                    }
+
+                    ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(key, "inventory"));
                 }
             }
         };
